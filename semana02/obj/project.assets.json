@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Madelin Pianda\\Documents\\maly\\ESTRUCTURA-DE-DATOS\\semana02c\\semana02c.csproj",
-      "projectName": "semana02c",
-      "projectPath": "C:\\Users\\Madelin Pianda\\Documents\\maly\\ESTRUCTURA-DE-DATOS\\semana02c\\semana02c.csproj",
+      "projectUniqueName": "C:\\Users\\Madelin Pianda\\Documents\\maly\\ESTRUCTURA-DE-DATOS\\semana02\\semana02.csproj",
+      "projectName": "semana02",
+      "projectPath": "C:\\Users\\Madelin Pianda\\Documents\\maly\\ESTRUCTURA-DE-DATOS\\semana02\\semana02.csproj",
       "packagesPath": "C:\\Users\\Madelin Pianda\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Madelin Pianda\\Documents\\maly\\ESTRUCTURA-DE-DATOS\\semana02c\\obj\\",
+      "outputPath": "C:\\Users\\Madelin Pianda\\Documents\\maly\\ESTRUCTURA-DE-DATOS\\semana02\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Madelin Pianda\\AppData\\Roaming\\NuGet\\NuGet.Config"
