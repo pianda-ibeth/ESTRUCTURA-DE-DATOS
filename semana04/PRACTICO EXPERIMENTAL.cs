@@ -1,31 +1,79 @@
 ﻿using System;
 
-class Program
+namespace AgendaApp
 {
-    static void Main(string[] args)
+    class Program
     {
-        Contacto[] agenda = new Contacto[12];
-
-        agenda[0] = new Contacto { Id = 1, Nombres = "Madelin Ibeth", Apellidos = "Pianda Rosado", Direccion = "Barrio El Chisparo, Manabí", Telefonos = new string[] { "0994693440", "0990327340" } };
-        agenda[1] = new Contacto { Id = 2, Nombres = "Juan Carlos", Apellidos = "Gómez López", Direccion = "Centro de la ciudad", Telefonos = new string[] { "0987654321" } };
-        agenda[2] = new Contacto { Id = 3, Nombres = "María Fernanda", Apellidos = "Pérez Ruiz", Direccion = "Av. Amazonas", Telefonos = new string[] { "0971122334" } };
-        agenda[3] = new Contacto { Id = 4, Nombres = "Luis Alberto", Apellidos = "Mendoza", Direccion = "Barrio San Juan", Telefonos = new string[] { "0962233445" } };
-        agenda[4] = new Contacto { Id = 5, Nombres = "Ana Cristina", Apellidos = "Torres Vega", Direccion = "Cdla. Universitaria", Telefonos = new string[] { "0953344556" } };
-        agenda[5] = new Contacto { Id = 6, Nombres = "Carlos Andrés", Apellidos = "Villacís", Direccion = "Sector Norte", Telefonos = new string[] { "0944455667" } };
-        agenda[6] = new Contacto { Id = 7, Nombres = "Daniela", Apellidos = "Flores Ortiz", Direccion = "Barrio Central", Telefonos = new string[] { "0935566778" } };
-        agenda[7] = new Contacto { Id = 8, Nombres = "José Miguel", Apellidos = "Cedeño", Direccion = "Av. Principal", Telefonos = new string[] { "0926677889" } };
-        agenda[8] = new Contacto { Id = 9, Nombres = "Paola Andrea", Apellidos = "Ríos", Direccion = "Sector Sur", Telefonos = new string[] { "0917788990" } };
-        agenda[9] = new Contacto { Id = 10, Nombres = "Ricardo", Apellidos = "Zambrano", Direccion = "Cdla. Los Álamos", Telefonos = new string[] { "0908899001" } };
-        agenda[10] = new Contacto { Id = 11, Nombres = "Katherine", Apellidos = "López", Direccion = "Barrio El Recreo", Telefonos = new string[] { "0999988776" } };
-        agenda[11] = new Contacto { Id = 12, Nombres = "Fernando", Apellidos = "Muñoz", Direccion = "Av. Universitaria", Telefonos = new string[] { "0988877665" } };
-
-        Console.WriteLine("AGENDA TELEFÓNICA\n");
-
-        for (int i = 0; i < agenda.Length; i++)
+        static void Main(string[] args)
         {
-            agenda[i].MostrarContacto();
-        }
+            // Instancia de la clase Agenda
+            Agenda miAgenda = new Agenda();
+            bool continuar = true;
 
-        Console.ReadKey();
+            while (continuar)
+            {
+                
+                Console.WriteLine("\n=== GESTIÓN DE AGENDA TELEFÓNICA ===");
+                Console.ResetColor();
+                Console.WriteLine("1. Agregar Contacto");
+                Console.WriteLine("2. Mostrar Todos");
+                Console.WriteLine("3. Buscar Contacto");
+                Console.WriteLine("4. Eliminar Contacto");
+                Console.WriteLine("5. Salir");
+                Console.Write("Seleccione una opción: ");
+
+                string opcion = Console.ReadLine();
+
+                switch (opcion)
+                {
+                    case "1":
+                        Console.WriteLine("\n[NUEVO CONTACTO]");
+                        Console.Write("Ingrese Nombre: ");
+                        string nom = Console.ReadLine();
+                        Console.Write("Ingrese Teléfono: ");
+                        string tel = Console.ReadLine();
+                        Console.Write("Ingrese Email: ");
+                        string email = Console.ReadLine();
+
+                        // Validación simple
+                        if (!string.IsNullOrEmpty(nom))
+                        {
+                            // Crea el objeto y lo pasa a la agenda
+                            Contacto nuevoContacto = new Contacto(nom, tel, email);
+                            miAgenda.AgregarContacto(nuevoContacto);
+                        }
+                        else
+                        {
+                            Console.WriteLine(">> Error: El nombre es obligatorio.");
+                        }
+                        break;
+
+                    case "2":
+                        miAgenda.MostrarContactos();
+                        break;
+
+                    case "3":
+                        Console.Write("Ingrese nombre a buscar: ");
+                        string busqueda = Console.ReadLine();
+                        miAgenda.BuscarContacto(busqueda);
+                        break;
+
+                    case "4":
+                        Console.Write("Ingrese nombre EXACTO a eliminar: ");
+                        string eliminar = Console.ReadLine();
+                        miAgenda.EliminarContacto(eliminar);
+                        break;
+
+                    case "5":
+                        continuar = false;
+                        Console.WriteLine("Cerrando sistema...");
+                        break;
+
+                    default:
+                        Console.WriteLine("Opción no válida. Intente de nuevo.");
+                        break;
+                }
+            }
+        }
     }
 }

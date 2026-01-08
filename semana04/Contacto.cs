@@ -1,26 +1,26 @@
 using System;
 
-public class Contacto
+namespace AgendaApp
 {
-    public int Id;
-    public string Nombres = "";
-    public string Apellidos = "";
-    public string Direccion = "";
-    public string[] Telefonos = Array.Empty<string>();
-
-    public void MostrarContacto()
+    // CLASE CONTACTO
+    // Representa el registro de datos individual
+    public class Contacto
     {
-        Console.WriteLine("ID: " + Id);
-        Console.WriteLine("Nombres: " + Nombres);
-        Console.WriteLine("Apellidos: " + Apellidos);
-        Console.WriteLine("Dirección: " + Direccion);
-        Console.WriteLine("Teléfonos:");
+        public string Nombre { get; set; }
+        public string Telefono { get; set; }
+        public string Email { get; set; }
 
-        for (int i = 0; i < Telefonos.Length; i++)
+        public Contacto(string nombre, string telefono, string email)
         {
-            Console.WriteLine(" - " + Telefonos[i]);
+            Nombre = nombre;
+            Telefono = telefono;
+            Email = email;
         }
 
-        Console.WriteLine("-----------------------------");
+        // Método para facilitar la impresión de datos en una sola línea
+        public override string ToString()
+        {
+            return $"Nombre: {Nombre} | Tel: {Telefono} | Email: {Email}";
+        }
     }
 }
