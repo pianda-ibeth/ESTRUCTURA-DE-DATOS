@@ -1,0 +1,15 @@
+# Archivo de vuelos - Formato: Origen, Destino, Precio
+# Generado automaticamente
+
+Cuenca, Guayaquil, 55
+Cuenca, Manta, 90
+Guayaquil, Cuenca, 50
+Guayaquil, Manta, 70
+Guayaquil, Galapagos, 200
+Loja, Cuenca, 85
+Manta, Quito, 115
+Pastaza, Loja, 50
+Quito, Guayaquil, 80
+Quito, Cuenca, 100
+Quito, Manta, 120
+Quito, Loja, 150
